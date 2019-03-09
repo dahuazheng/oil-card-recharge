@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Home from './pages/Home'
 import OilRecharge from './pages/OilRecharge'
+import OilNotes from './pages/OilNotes'
 
 Vue.use(Router)
 
@@ -23,6 +24,13 @@ const router = new Router({
             component: OilRecharge,
             meta: {
                 title: '油卡充值'
+            }
+        }, {
+            path: '/oil-notes',
+            name: 'oilNotes',
+            component: OilNotes,
+            meta: {
+                title: '注意事项'
             }
         }
     ]

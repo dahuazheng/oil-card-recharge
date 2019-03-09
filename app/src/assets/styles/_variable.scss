@@ -13,7 +13,7 @@ $gray-darker: #7d7e80;
 $gray-dark: #969799;
 
 // Default colors
-$primary-color: #1989fa;
+$primary-color: #00b961;
 $succeed-color: #07c160;
 $danger-color: #ef4f4f;
 
@@ -36,7 +36,8 @@ $font-large-s: 18px;
 $font-large: 20px;
 
 // Font family
-$font-sans-serif: PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, Arial, sans-serif;
+$font-sans-serif: PingFangSC-Light, PingFang SC, Hiragino Sans GB, WenQuanYi Micro Hei, Arial, sans-serif;
+$font-regular: PingFangSC-Regular, PingFang SC, Hiragino Sans GB, WenQuanYi Micro Hei, Arial, sans-serif;
 $font-serif: SimSun, "宋体", serif;
 
 // Space width
@@ -45,5 +46,5 @@ $space-width-s: 10px;
 $space-width-l: 20px;
 
 // Other
-$box-shadow: 0 0 5px rgba(0,0,0,0.2);
+$box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 $border-radius: 3px;
