@@ -1,0 +1,143 @@
+@charset "utf-8";
+@import "./_variable";
+
+// 去掉单位
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+// px转rem
+@mixin px2rem($property, $px, $px2:false, $px3:false, $px4:false) {
+    $rem: 10;
+
+    @if $px and $px2 and $px3 and $px4 {
+        #{$property}: ($px / $rem) + rem ($px2 / $rem) + rem ($px3 / $rem) + rem ($px4 / $rem) + rem;
+    }
+
+    @else if $px and $px2 {
+        #{$property}: ($px / $rem) + rem ($px2 / $rem) + rem;
+    }
+
+    @else {
+        #{$property}: ($px / $rem) + rem;
+    }
+}
+
+// 根据dpr计算font-size
+@mixin fontDpr($font-size) {
+    $font-size: strip-units($font-size);
+    @include px2rem('font-size', $font-size);
+
+    [data-dpr="2"] & {
+        @include px2rem('font-size', $font-size * 2);
+    }
+
+    [data-dpr="3"] & {
+        @include px2rem('font-size', $font-size * 3);
+    }
+}
+
+// 通过该函数设置字体大小，后期方便统一管理
+@mixin fontSize($size) {
+    @include fontDpr($size);
+}
+
+/*超行溢出显示省略号*/
+@mixin overflow($num:1, $fontSize:0, $lineHeight:1.5) {
+    display: -webkit-box;
+    overflow: hidden;
+    /* autoprefixer: ignore next */
+    -webkit-line-clamp: $num;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+
+    /* autoprefixer: on */
+    @if $fontSize !=0 and $lineHeight {
+        /*高度需要撑开*/
+        line-height: $lineHeight;
+
+        @if $lineHeight < 1.2 {
+            line-height: 1.2;
+            /*最小需要1.2，否则在部分安卓机下第$num+1行会顶部漏出*/
+        }
+
+        height: $num * $fontSize * $lineHeight;
+
+        [data-dpr="2"] & {
+            height: $num * $fontSize * $lineHeight * 2 !important;
+        }
+
+        [data-dpr="3"] & {
+            height: $num * $fontSize * $lineHeight * 3 !important;
+        }
+    }
+}
+
+//transition兼容写法
+@mixin transition($content:all .2s) {
+    -moz-transition: $content;
+    -webkit-transition: $content;
+    -o-transition: $content;
+    transition: $content;
+}
+
+//transfrom兼容
+@mixin translateX($num:-50%) {
+    -ms-transform: translateX($num);
+    -moz-transform: translateX($num);
+    -webkit-transform: translateX($num);
+    -o-transform: translateX($num);
+    transform: translateX($num);
+}
+
+@mixin translateY($num:-50%) {
+    -ms-transform: translateY($num);
+    -moz-transform: translateY($num);
+    -webkit-transform: translateY($num);
+    -o-transform: translateY($num);
+    transform: translateY($num);
+}
+
+@mixin rotate($deg:90deg) {
+    -ms-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -webkit-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+// 清除内外边距
+@mixin clearBack() {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin flex-bottom ($orginalValue){
+    bottom: $orginalValue;
+    bottom: calc(#{$orginalValue} + constant(safe-area-inset-bottom));
+    bottom: calc(#{$orginalValue} + env(safe-area-inset-bottom));
+}
+
+@mixin flex-padding-bottom ($orginalValue){
+    padding-bottom: $orginalValue;
+    padding-bottom: calc(#{$orginalValue} + constant(safe-area-inset-bottom));
+    padding-bottom: calc(#{$orginalValue} + env(safe-area-inset-bottom));
+}
+
+@mixin hairline($position){
+    &::after{
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        -webkit-transform: scale(.5);
+        transform: scale(.5);
+        border: 0 solid #ebedf0;
+        border-#{$position}-width: 1px;
+    }
+}

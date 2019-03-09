@@ -1,0 +1,143 @@
+/* 清楚默认样式 */
+
+html {
+    // 禁用iPhone中Safari的字号自动调整 
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    // 解决IOS默认滑动很卡的情况 
+    -webkit-overflow-scrolling: touch;
+}
+
+// 清除ul默认样式
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// 移动端点击a链接出现蓝色背景问题解决
+a:link,
+a:active,
+a:visited,
+a:hover {
+    background: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+// 禁止缩放表单
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input {
+    resize: none;
+    border: none;
+}
+
+// 清除移动端默认的表单样式
+input {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+// 清除浮动
+.clearfix {
+
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+// 媒体查询相应
+@media screen and(min-width: 320px) and (max-width: 359px) {
+    html {
+        font-size: 8.5px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    html {
+        font-size: 9.6px;
+    }
+}
+
+@media screen and(min-width: 375px) and(max-width: 385px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media screen and(min-width: 386px) and(max-width: 392px) {
+    html {
+        font-size: 10.3px;
+    }
+}
+
+@media screen and(min-width: 393px) and(max-width: 400px) {
+    html {
+        font-size: 10.5px;
+    }
+}
+
+@media screen and(min-width: 401px) and(max-width: 414px) {
+    html {
+        font-size: 10.7px;
+    }
+}
+
+@media screen and(min-width: 415px) and(max-width: 750px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media screen and(min-width: 750px) and(max-width: 799px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* 快捷类 */
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.half-height {
+    height: 50%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
