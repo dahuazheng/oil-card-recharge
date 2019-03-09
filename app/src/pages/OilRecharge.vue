@@ -1,12 +1,12 @@
 <template>
     <div id="oil-recharge">
         <main>
-            <div class="account">
+            <div class="account" @click="toCardList(currentCard.cardId)">
                 <p>
-                    3302251993050303101
+                    {{currentCard.cardId}}
                     <icon name="user"></icon>
                 </p>
-                <small>中石化</small>
+                <small>{{currentCard.group}}</small>
             </div>
             <div class="recharge">
                 <label>充油卡</label>
@@ -18,7 +18,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="box">
+                        <div class="box" @click="toCustomPrice">
                             自定义
                             <small>最高单充10000元</small>
                         </div>
@@ -39,6 +39,11 @@
         name: 'oilRecharge',
         data() {
             return {
+                currentCard: {
+                    label: '妈妈',
+                    cardId: '3302251993050303113',
+                    group: '中石化'
+                },
                 prices: [
                     {
                         originalPrice: 30,
@@ -60,6 +65,14 @@
                         sellingPrice: 499.00
                     }
                 ]
+            }
+        },
+        methods: {
+            toCardList(cardId) {
+                this.$router.push({name: 'oilCardList', params: {cardId}})
+            },
+            toCustomPrice() {
+                this.$router.push({name: 'oilCustomPrice'})
             }
         }
     }
