@@ -8,11 +8,13 @@ import OilCardList from './pages/OilCardList'
 import OilCardAdd from './pages/OilCardAdd'
 import OilCustomPrice from './pages/OilCustomPrice'
 
+import AgentRebate from './pages/AgentRebate'
+
 Vue.use(Router)
 
 const router = new Router({
-    mode: 'history',
-    base: '/',
+    mode: 'hash',
+    base: './',
     routes: [
         {
             path: '/',
@@ -49,19 +51,26 @@ const router = new Router({
             meta: {
                 title: '油卡列表'
             }
-        },{
+        }, {
             path: '/oil-card-add',
             name: 'oilCardAdd',
             component: OilCardAdd,
             meta: {
                 title: '添加油卡'
             }
-        },{
+        }, {
             path: '/oil-custom-price',
             name: 'oilCustomPrice',
             component: OilCustomPrice,
             meta: {
                 title: '油卡充值'
+            }
+        }, {
+            path: '/agent-rebate',
+            name: 'agentRebate',
+            component: AgentRebate,
+            meta: {
+                title: '代理返佣'
             }
         }
     ]

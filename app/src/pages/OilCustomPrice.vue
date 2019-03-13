@@ -3,19 +3,32 @@
         <ul>
             <li>
                 <label>充值金额：</label>
-                <input type="text" placeholder="请输入金额">
+                <input type="number" placeholder="请输入金额" v-model="price">
             </li>
         </ul>
         <p>尊敬的用户，单次最多可充值10000元。</p>
-        <button>立即充值</button>
+        <button @click="recharge">立即充值</button>
     </div>
 </template>
 
 <script>
+
     export default {
         name: 'oilCustomPrice',
         data() {
-            return {}
+            return {
+                price: null
+            }
+        },
+        methods: {
+            recharge() {
+                if (!this.price) {
+                    return this.$toast('请输入金额')
+                }
+                if (Number(this.price) > 10000) {
+                    return this.$toast('金额不能超过10000元')
+                }
+            }
         }
     }
 </script>

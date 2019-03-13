@@ -2,11 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import SvgIcon from 'vue-svgicon'
+import { Toast } from 'vant';
+
 
 import './assets/styles/common.scss'
 import './assets/icons'
 
 Vue.use(SvgIcon, {tagName: 'icon'})
+Vue.use(Toast)
 
 
 Vue.config.productionTip = false
