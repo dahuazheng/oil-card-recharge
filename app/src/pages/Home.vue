@@ -5,6 +5,11 @@
                 油卡充值
             </router-link>
         </p>
+        <p>
+            <router-link to="/agent-rebate">
+                代理返佣
+            </router-link>
+        </p>
 
     </div>
 </template>
