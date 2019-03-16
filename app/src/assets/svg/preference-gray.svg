@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="油卡充值（空）" transform="translate(-32.000000, -721.000000)">
+            <g id="分组-2" transform="translate(11.000000, 700.000000)">
+                <polygon id="矩形" fill="#999999" fill-rule="nonzero" transform="translate(42.426407, 42.426407) rotate(-45.000000) translate(-42.426407, -42.426407) " points="27.4264069 27.4264069 57.4264069 27.4264069 87.4264069 57.4264069 -2.57359313 57.4264069"></polygon>
+                <text id="特惠" transform="translate(42.000000, 43.000000) rotate(-45.000000) translate(-42.000000, -43.000000) " font-family="PingFangSC-Regular, PingFang SC" font-size="20" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="22" y="50">特惠</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

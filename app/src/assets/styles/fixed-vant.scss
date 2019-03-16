@@ -1,0 +1,9 @@
+@import './mixin';
+
+.van-picker__cancel {
+    color: $text-third-color;
+}
+
+.van-picker__confirm {
+    color: $primary-color;
+}

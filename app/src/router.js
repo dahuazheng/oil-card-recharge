@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Home from './pages/Home'
 import OilRecharge from './pages/OilRecharge'
+import OilApply from './pages/OilApply'
 import OilNotes from './pages/OilNotes'
 import OilCardList from './pages/OilCardList'
 import OilCardAdd from './pages/OilCardAdd'
@@ -29,6 +30,13 @@ const router = new Router({
             component: OilRecharge,
             meta: {
                 title: '油卡充值'
+            }
+        }, {
+            path: '/oil-apply',
+            name: 'oilApply',
+            component: OilApply,
+            meta: {
+                title: '油卡申请'
             }
         }, {
             path: '/oil-notes',
