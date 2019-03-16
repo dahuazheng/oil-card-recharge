@@ -42,7 +42,7 @@
             </li>
         </ul>
         <p>尊敬的用户，如需修改银行卡号，请联系我们</p>
-        <p>
+        <p class="btn-box">
             <button @click="submit">立即提现</button>
         </p>
     </div>
@@ -64,7 +64,11 @@
         },
         methods: {
             submit() {
-
+                const {price} = this.withdraw
+                if (!price) {
+                    return this.$toast('请输入提现金额')
+                }
+                this.$router.push('/user-center')
             }
         }
     }
@@ -74,6 +78,8 @@
     @import '../assets/styles/mixin';
 
     #user-withdraw {
+        background: $white;
+
         ul {
             padding: 0 $space-width;
         }
@@ -87,7 +93,7 @@
             border-bottom: 1px solid $border-color;
 
             label {
-                @include px2rem(width, 70);
+                @include px2rem(width, 80);
                 @include fontSize($font-medium);
                 display: inline-block;
             }
@@ -101,13 +107,19 @@
 
         p {
             @include clearBack;
-            padding: 40px $space-width * 2;
+            @include fontSize($font-little)
+            padding: 20px $space-width;
+            color: $primary-color;
+        }
+
+        .btn-box {
+            padding: 24px $space-width * 2;
             text-align: center;
 
             button {
                 @include fontSize($font-medium);
                 width: 100%;
-                height: 40px;
+                height: 45px;
                 background: $primary-color;
                 border: none;
                 border-radius: $border-radius;

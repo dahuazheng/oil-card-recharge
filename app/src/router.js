@@ -97,7 +97,7 @@ const router = new Router({
             name: 'userPopularize',
             component: UserPopularize,
             meta: {
-                title: '推广链接'
+                title: '推广'
             }
         }, {
             path: '/user-bonus',
