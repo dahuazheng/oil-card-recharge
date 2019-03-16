@@ -1,5 +1,11 @@
 /* eslint-disable */
+require('./balance')
+require('./bonus')
 require('./check-s')
+require('./earnings')
+require('./popularize')
 require('./preference-gray')
 require('./preference-primary')
+require('./record')
 require('./user')
+require('./withdraw')

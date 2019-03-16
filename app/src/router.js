@@ -7,9 +7,14 @@ import OilApply from './pages/OilApply'
 import OilNotes from './pages/OilNotes'
 import OilCardList from './pages/OilCardList'
 import OilCardAdd from './pages/OilCardAdd'
-import OilCustomPrice from './pages/OilCustomPrice'
 
 import AgentRebate from './pages/AgentRebate'
+
+import UserCenter from './pages/UserCenter'
+import UserWithdraw from './pages/UserWithdraw'
+import UserPopularize from './pages/UserPopularize'
+import UserBonus from './pages/UserBonus'
+import UserRecord from './pages/UserRecord'
 
 Vue.use(Router)
 
@@ -67,18 +72,46 @@ const router = new Router({
                 title: '添加油卡'
             }
         }, {
-            path: '/oil-custom-price',
-            name: 'oilCustomPrice',
-            component: OilCustomPrice,
-            meta: {
-                title: '油卡充值'
-            }
-        }, {
             path: '/agent-rebate',
             name: 'agentRebate',
             component: AgentRebate,
             meta: {
                 title: '代理返佣'
+            }
+        }, {
+            path: '/user-center',
+            name: 'userCenter',
+            component: UserCenter,
+            meta: {
+                title: '个人中心'
+            }
+        }, {
+            path: '/user-withdraw',
+            name: 'userWithdraw',
+            component: UserWithdraw,
+            meta: {
+                title: '提现'
+            }
+        }, {
+            path: '/user-popularize',
+            name: 'userPopularize',
+            component: UserPopularize,
+            meta: {
+                title: '推广链接'
+            }
+        }, {
+            path: '/user-bonus',
+            name: 'userBonus',
+            component: UserBonus,
+            meta: {
+                title: '奖金明细'
+            }
+        }, {
+            path: '/user-record',
+            name: 'userRecord',
+            component: UserRecord,
+            meta: {
+                title: '提现记录'
             }
         }
     ]

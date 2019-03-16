@@ -33,7 +33,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="box" @click="toCustomPrice">
+                        <div class="box" @click="showCustomPrice=true">
                             自定义
                             <small>最高单充10000元</small>
                             <img v-if="status==='charge'" src="../assets/svg/preference-primary.svg">
@@ -50,15 +50,20 @@
             |
             <router-link to="/">联系我们</router-link>
         </aside>
+        <OilCustomPrice v-show="showCustomPrice"/>
     </div>
 </template>
 
 <script>
+    import OilCustomPrice from '../components/OilCustomPrice'
+
     export default {
         name: 'oilRecharge',
+        components: {OilCustomPrice},
         data() {
             return {
-                status: 'unbind',
+                showCustomPrice: false,
+                status: 'charge',
                 currentCard: {
                     label: '妈妈',
                     cardId: '3302251993050303113',
@@ -92,9 +97,6 @@
         methods: {
             toCardList(cardId) {
                 this.$router.push({name: 'oilCardList', params: {cardId}})
-            },
-            toCustomPrice() {
-                this.$router.push({name: 'oilCustomPrice'})
             }
         }
     }

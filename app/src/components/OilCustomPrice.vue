@@ -1,13 +1,15 @@
 <template>
     <div id="oil-custom__price">
-        <ul>
-            <li>
-                <label>充值金额：</label>
-                <input type="number" placeholder="请输入金额" v-model="price">
-            </li>
-        </ul>
-        <p>尊敬的用户，单次最多可充值10000元。</p>
-        <button @click="recharge">立即充值</button>
+        <main>
+            <ul>
+                <li>
+                    <label>充值金额</label>
+                    <input type="number" placeholder="请输入金额" v-model="price">
+                </li>
+            </ul>
+            <p>尊敬的用户，单次最少充值1000元。</p>
+            <button @click="recharge">立即充值</button>
+        </main>
     </div>
 </template>
 
@@ -37,41 +39,50 @@
     @import "../assets/styles/mixin";
 
     #oil-custom__price {
-        padding: 0 30px;
-        background: $white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $background-color;
+
+        main {
+            padding: 0 30px;
+            background: $white;
+        }
 
         ul li {
+            @include fontSize($font-medium);
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
             align-items: center;
-            height: 60px;
+            height: 65px;
             border-bottom: 1px solid $border-color;
             font-family: $font-regular;
 
             input {
                 @include fontSize($font-medium-s);
                 flex: 1;
-                margin-left: 10px;
+                margin-left: 24px;
                 border: none;
-                text-align: right;
                 color: $text-third-color;
                 font-family: $font-sans-serif;
             }
         }
 
         p {
-            margin: 15px 0 30px;
+            @include fontSize($font-little);
+            margin: 15px 0;
             color: $primary-color;
         }
 
         button {
             @include fontSize($font-medium);
-            margin: 20px 0 30px;
+            margin: 50px 0;
             width: 100%;
-            height: 44px;
+            height: 45px;
             border: none;
-            border-radius: 5px;
+            border-radius: $border-radius;
             background: $primary-color;
             color: $white;
         }
