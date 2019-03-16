@@ -1,5 +1,5 @@
 <template>
-    <div id="oil-custom-price">
+    <div id="oil-custom__price">
         <ul>
             <li>
                 <label>充值金额：</label>
@@ -36,7 +36,7 @@
 <style lang="scss" scoped>
     @import "../assets/styles/mixin";
 
-    #oil-custom-price {
+    #oil-custom__price {
         padding: 0 30px;
         background: $white;
 

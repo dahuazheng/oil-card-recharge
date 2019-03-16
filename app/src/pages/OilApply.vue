@@ -29,7 +29,7 @@
                     placeholder="点击选择省市"
                     readonly
                     v-model="provinceCity"
-                    @click="areaShow=true">
+                    @click="showArea=true">
             </li>
             <li>
                 <label>&nbsp;</label>
@@ -51,26 +51,29 @@
             <button @click="submit">提交申请</button>
         </p>
         <SelectArea
-            :show="areaShow"
+            :show="showArea"
             :columnsNum="2"
             :cancel="areaCancel"
             :confirm="areaConfirm"
         />
+        <OilApplySucceed v-show="showSucceed"/>
     </div>
 </template>
 
 <script>
     import SelectArea from '../components/SelectArea'
+    import OilApplySucceed from '../components/OilApplySucceed'
     import {isMobile, isValidIDCard, isSmsCode} from '../utils/reg'
 
     const COUNTDOWN = 15
 
     export default {
         name: 'oilApply',
-        components: {SelectArea},
+        components: {SelectArea, OilApplySucceed},
         data() {
             return {
-                areaShow: false,
+                showArea: false,
+                showSucceed: false,
                 countdown: COUNTDOWN,
                 countdownLabel: '获取验证码',
                 apply: {
@@ -93,13 +96,13 @@
         },
         methods: {
             areaCancel() {
-                this.areaShow = false
+                this.showArea = false
             },
             areaConfirm(values) {
                 if (!values || !values.length) return
                 this.apply.province = values[0].name
                 this.apply.city = values[1].name
-                this.areaShow = false
+                this.showArea = false
             },
             getSmsCode() {
                 this.timeCountdown()
@@ -118,6 +121,7 @@
                 }, 1000)
             },
             submit() {
+                // this.showSucceed = true
                 const errs = [
                     {
                         key: 'name',
@@ -162,6 +166,7 @@
                 if (!isSmsCode(this.apply.code)) {
                     return this.$toast('请输入正确的手机验证码')
                 }
+                this.showSucceed = true
             }
         }
     }
@@ -219,6 +224,7 @@
             text-align: center;
 
             button {
+                @include fontSize($font-medium);
                 width: 100%;
                 height: 40px;
                 background: $primary-color;
