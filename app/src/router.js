@@ -7,6 +7,7 @@ import OilApply from './pages/OilApply'
 import OilNotes from './pages/OilNotes'
 import OilCardList from './pages/OilCardList'
 import OilCardAdd from './pages/OilCardAdd'
+import OilOrderList from './pages/OilOrderList'
 
 import AgentRebate from './pages/AgentRebate'
 
@@ -70,6 +71,13 @@ const router = new Router({
             component: OilCardAdd,
             meta: {
                 title: '添加油卡'
+            }
+        }, {
+            path: '/oil-order-list',
+            name: 'oilOrderList',
+            component: OilOrderList,
+            meta: {
+                title: '订单列表'
             }
         }, {
             path: '/agent-rebate',

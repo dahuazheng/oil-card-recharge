@@ -1,10 +1,10 @@
 <template>
-    <div id="oil-card-list">
+    <div id="oil-card__list">
         <ul>
             <li>
-                <label>{{currentCard.label}}</label>
+                <label class="selected">{{currentCard.label}}</label>
                 <p>
-                    <span>{{currentCard.group}}</span>
+                    <!--<span>{{currentCard.group}}</span>-->
                     {{currentCard.cardId}}
                 </p>
             </li>
@@ -14,13 +14,13 @@
             <li v-for="card in otherCards" :key="card.cardId">
                 <label>{{card.label}}</label>
                 <p>
-                    <span>{{card.group}}</span>
+                    <!--<span>{{card.group}}</span>-->
                     {{card.cardId}}
                 </p>
             </li>
         </ul>
         <aside>
-            <button @click="toAddCard">+添加油卡</button>
+            <button @click="toAddCard">+ 添加油卡</button>
         </aside>
     </div>
 </template>
@@ -66,8 +66,8 @@
                 }
                 this.currentCard = this.cards[0] || {}
             },
-            toAddCard(){
-                this.$router.push({name:'oilCardAdd'})
+            toAddCard() {
+                this.$router.push({name: 'oilCardAdd'})
             }
         }
     }
@@ -76,17 +76,25 @@
 <style lang="scss" scoped>
     @import "../assets/styles/mixin";
 
-    #oil-card-list {
+    #oil-card__list {
         ul li {
+            @include fontSize($font-medium);
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
-            margin-bottom: 5px;
+            height: 70px;
+            margin-bottom: 10px;
             padding: 0 30px;
             background: $white;
-            font-family: $font-regular;
+
+            label {
+                @include fontSize($font-medium - 1);
+
+                &.selected {
+                    color: $primary-color;
+                }
+            }
 
             span {
                 display: inline-block;
@@ -109,12 +117,13 @@
             padding: 0 20px;
 
             button {
-                @include fontSize($font-medium-s);
+                @include fontSize($font-medium + 1);
                 width: 100%;
-                height: 50px;
-                border: 2px solid $border-color;
-                background: transparent;
-                color: $text-third-color;
+                height: 45px;
+                border: none;
+                border-radius: $border-radius;
+                background: $primary-color;
+                color: $white;
             }
         }
     }

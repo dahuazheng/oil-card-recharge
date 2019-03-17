@@ -43,11 +43,13 @@
     #oil-notes {
         box-sizing: border-box;
         min-height: 100vh;
-        padding: 10px 30px;
-        background: $white;
 
-        ul li {
-            @include fontSize($font-medium);
+        ul {
+            padding: 0 30px 30px;
+            background: $white;
+        }
+
+        li {
             padding-top: 30px;
             line-height: 1.5;
             font-family: $font-regular;

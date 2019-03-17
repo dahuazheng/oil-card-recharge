@@ -44,11 +44,11 @@
             </div>
         </main>
         <aside>
-            <router-link to="/oil-notes">我的订单</router-link>
+            <router-link to="/oil-order-list">我的订单</router-link>
             |
             <router-link to="/oil-notes">注意事项</router-link>
             |
-            <router-link to="/">联系我们</router-link>
+            <router-link to="/oil-order-list">联系我们</router-link>
         </aside>
         <OilCustomPrice v-show="showCustomPrice"/>
     </div>
