@@ -2,6 +2,7 @@
 require('./balance')
 require('./bonus')
 require('./check-s')
+require('./customer-service')
 require('./earnings')
 require('./order-succeed')
 require('./popularize')

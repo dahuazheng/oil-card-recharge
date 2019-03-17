@@ -45,7 +45,7 @@ export function timeAgo(dateTime) {
  */
 
 export function formatDate(date, type) {
-    if(!date) return ''
+    if (!date) return ''
     if (isValidNumber(date)) {
         date = Number(date)
     }
@@ -59,4 +59,26 @@ export function formatDate(date, type) {
         return dayjs(date).format('YYYY-MM-DD HH:mm')
     }
     return dayjs(date).format('YYYY-MM-DD HH:mm:ss')
+}
+
+/**
+ * 返回时间格式字符串
+ * @param time
+ * "time"指时间格式的字符串或者时间戳
+ */
+
+export function formatChatTime(time) {
+    if (!time) return ''
+    if (isValidNumber(time)) {
+        time = Number(time)
+    }
+    time = dayjs(time)
+    const startDate = dayjs().startOf('date')
+    if (time.valueOf() > startDate.valueOf()) {
+        return dayjs(time).format('HH:mm')
+    }
+    if (time.valueOf() > dayjs(startDate).subtract(1, 'day').valueOf()) {
+        return '昨天 ' + dayjs(time).format('HH:mm')
+    }
+    return dayjs(time).format('YYYY-MM-DD HH:mm')
 }
