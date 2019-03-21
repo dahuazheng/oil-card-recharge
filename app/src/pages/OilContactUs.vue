@@ -67,8 +67,8 @@
                 ]
             }
         },
-        filters:{
-            displayTime(time){
+        filters: {
+            displayTime(time) {
                 return formatChatTime(time)
             }
         },

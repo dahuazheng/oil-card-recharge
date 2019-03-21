@@ -9,8 +9,11 @@
     "svg": "vsvg -s ./src/assets/svg -t ./src/assets/icons"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "dayjs": "^1.8.10",
+    "js-cookie": "^2.2.0",
     "qrcode.vue": "^1.6.1",
+    "qs": "^6.6.0",
     "vant": "^1.5.9",
     "vue": "^2.6.6",
     "vue-clipboard2": "^0.3.0",

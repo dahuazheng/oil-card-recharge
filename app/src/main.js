@@ -2,8 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import SvgIcon from 'vue-svgicon'
-import VueClipboard  from 'vue-clipboard2'
-import {Icon,Toast, Area, Popup} from 'vant'
+import VueClipboard from 'vue-clipboard2'
+import {Icon, Toast, Area, Popup} from 'vant'
+import {OilApi} from './api'
 
 
 import './assets/styles/common.scss'
@@ -18,7 +19,7 @@ Vue.use(Toast)
 Vue.use(Area)
 Vue.use(Popup)
 
-
+Vue.prototype.$oilApi = OilApi
 Vue.config.productionTip = false
 
 new Vue({

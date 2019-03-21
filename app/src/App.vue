@@ -5,9 +5,15 @@
 </template>
 
 <script>
+    import WechatService from './services/wechat-service'
 
     export default {
         name: 'app',
+        created() {
+            new WechatService().authorization('http://m.oilcard.vip')
+
+            this.$oilApi.getPrices()
+        }
     }
 </script>
 
